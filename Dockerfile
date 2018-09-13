@@ -15,7 +15,8 @@ ENV TZ=Asia/Shanghai
 RUN apt-get update -y && \
     apt-get install -y cron && \
     touch /var/log/cron.log && \
-    crontab ./crontab_code
+    crontab ./crontab_code && \
+    pip install -r requirements.txt
 
 # ADD ./etc/crontab /etc/cron.d/crontab
 # EXPOSE 80
