@@ -76,10 +76,12 @@ class ReceiveMail(object):
         接收邮件
         """
         flag = True
+        self.server = imaplib.IMAP4_SSL(self.imap, port=self.port)
+        self.server.login(self.user, self.passwd)
         while flag:
-            self.server = imaplib.IMAP4_SSL(self.imap, port=self.port)
-
-            self.server.login(self.user, self.passwd)
+            # self.server = imaplib.IMAP4_SSL(self.imap, port=self.port)
+            #
+            # self.server.login(self.user, self.passwd)
             # log.info('登录成功')
             result, message = self.server.select("INBOX")
             typ, data = self.server.search(None, 'Unseen')  # 查询未读邮件
@@ -126,10 +128,11 @@ class ReceiveMail(object):
                         pass
                         # return False
             time.sleep(5)
+        self.server.close()
         # return False
 
-    def notify(self, publisher):
-        self.receive_mail()
+    # def notify(self, publisher):
+    #     self.receive_mail()
 
 
 class MyEmail:
