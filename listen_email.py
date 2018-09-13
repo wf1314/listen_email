@@ -19,14 +19,14 @@ from queue import Queue as tq
 import chardet
 import re
 
-to_list = ['sgwf525@126.com','wuqi@botpy.com']
+to_list = ['sgwf525@126.com','****']
 flag = True
 
 
 class ReceiveMail(object):
 
     def __init__(self,name,to_list,tq):
-        self.user = 'wangfan@botpy.com'
+        self.user = '****'
         self.passwd = '*****'
         self.name = name
         self.to_list = to_list
@@ -197,9 +197,9 @@ def main():
     my = MyEmail('wangfan',wf_to_list,wf_tq)
 
     wq_tq = tq()
-    wq_to_list = ['wuqi@botpy.com']
-    rm1 = ReceiveMail('wuqi',wq_to_list,wq_tq)
-    my1 = MyEmail('wuqi',wq_to_list,wq_tq)
+    wq_to_list = ['****']
+    rm1 = ReceiveMail('****',wq_to_list,wq_tq)
+    my1 = MyEmail('****',wq_to_list,wq_tq)
 
     t_list = []
     g1 = Thread(target=rm.receive_mail)
