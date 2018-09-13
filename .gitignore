@@ -65,7 +65,6 @@ target/
 test.py
 test_national.py
 local_settings.py
-*.sh
 temp/
 
 *.json

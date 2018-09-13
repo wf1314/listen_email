@@ -203,20 +203,20 @@ def main():
     rm = ReceiveMail('wangfan', wf_to_list, wf_tq)
     my = MyEmail('wangfan', wf_to_list, wf_tq)
 
-    wq_tq = tq()
-    wq_to_list = ['****']
-    rm1 = ReceiveMail('****', wq_to_list, wq_tq)
-    my1 = MyEmail('****', wq_to_list, wq_tq)
+    # wq_tq = tq()
+    # wq_to_list = ['****']
+    # rm1 = ReceiveMail('****', wq_to_list, wq_tq)
+    # my1 = MyEmail('****', wq_to_list, wq_tq)
 
     t_list = []
     g1 = Thread(target=rm.receive_mail)
     g2 = Thread(target=my.send)
-    g3 = Thread(target=rm1.receive_mail)
-    g4 = Thread(target=my1.send)
+    # g3 = Thread(target=rm1.receive_mail)
+    # g4 = Thread(target=my1.send)
     t_list.append(g1)
     t_list.append(g2)
-    t_list.append(g3)
-    t_list.append(g4)
+    # t_list.append(g3)
+    # t_list.append(g4)
     for t in t_list:
         t.start()
     for t in t_list:
