@@ -3,9 +3,9 @@ version: '3.5'
 
 services:
   mail:
-    container_name: mail
-    hostname: mail
+    container_name: email
+    hostname: email
 
-    image: mail:v1
+    image: email:v2
     cap_add:
       - ALL
