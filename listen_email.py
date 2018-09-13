@@ -107,7 +107,7 @@ class ReceiveMail(object):
                         # if mailContent:
                         #     coding = chardet.detect(mailContent).get('encoding')
                         if to_list in self.to_list:
-                            print('接收到来自{}停止发送信号'.format(self.name))
+                            # print('接收到来自{}停止发送信号'.format(self.name))
                             self.server.store(self.num, '+FLAGS', '\\Seen') # 添加已读标记
                             self.tq.queue.clear()
                             # print('停止发送')
@@ -115,7 +115,8 @@ class ReceiveMail(object):
                             # return True
 
                     except Exception as e:
-                        print('error:%s'%e)
+                        # print('error:%s'%e)
+                        pass
                         # return False
             time.sleep(5)
         # return False
@@ -145,14 +146,15 @@ class MyEmail:
                 server.login(self.user,self.passwd)
                 server.sendmail("<%s>"%self.user, self.to_list + self.cc_list, self.get_attach())
                 server.close()
-                print("The email to {} was sent successfully".format(self.name))
+                # print("The email to {} was sent successfully".format(self.name))
             except Exception as e:
-                print("send email failed:%s"%e)
+                # print("send email failed:%s"%e)
+                pass
             else:
                 self.tq.put(1)
             time.sleep(60*2)
             if self.tq.empty():
-                print('停止对{}发送'.format(self.name))
+                # print('停止对{}发送'.format(self.name))
                 break
     def get_attach(self):
         '''
