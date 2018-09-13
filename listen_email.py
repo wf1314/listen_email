@@ -23,13 +23,14 @@ import re
 
 to_list = ['sgwf525@126.com', '****']
 flag = True
-
+email_user = '****'
+email_pass = '****'
 
 class ReceiveMail(object):
 
     def __init__(self, name, to_list, tq):
-        self.user = '****'
-        self.passwd = '*****'
+        self.user = email_user
+        self.passwd = email_pass
         self.name = name
         self.to_list = to_list
         self.cc_list = []
@@ -131,8 +132,8 @@ class ReceiveMail(object):
 class MyEmail:
 
     def __init__(self, name, to_list, tq):
-        self.user = 'wangfan@botpy.com'
-        self.passwd = '****'
+        self.user = email_user
+        self.passwd = email_pass
         self.name = name
         self.to_list = to_list
         self.cc_list = []
