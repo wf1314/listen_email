@@ -16,7 +16,7 @@ RUN apt-get update -y && \
     apt-get install -y cron && \
     touch /var/log/cron.log && \
     crontab ./crontab_code && \
-    pip install -r requirements.txt
+    pip install -r requirments.txt
 
 # ADD ./etc/crontab /etc/cron.d/crontab
 # EXPOSE 80
