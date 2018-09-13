@@ -21,10 +21,11 @@ from queue import Queue as tq
 import chardet
 import re
 
-to_list = ['sgwf525@126.com', '****']
-flag = True
-email_user = 'wangfan@botpy.com'
-email_pass = 'QWERdfb123'
+to_list = ['sgwf525@126.com']
+# flag = True
+email_user = '****'
+email_pass = '****'
+
 
 class ReceiveMail(object):
 
@@ -37,6 +38,8 @@ class ReceiveMail(object):
         self.tag = None
         self.doc = None
         self.tq = tq
+        self.imap = "imap.exmail.qq.com"  # 腾讯企业邮箱iamp
+        self.port = 993
 
     def my_decode(self, s, encoding):
         if encoding:
@@ -74,7 +77,7 @@ class ReceiveMail(object):
         """
         flag = True
         while flag:
-            self.server = imaplib.IMAP4_SSL("imap.exmail.qq.com", port=993)
+            self.server = imaplib.IMAP4_SSL(self.imap, port=self.port)
 
             self.server.login(self.user, self.passwd)
             # log.info('登录成功')
@@ -141,6 +144,8 @@ class MyEmail:
         self.plain = '回复任意邮件停止发送'
         self.doc = None
         self.tq = tq
+        self.smtp = "smtp.exmail.qq.com"
+        self.port = 465
 
     def send(self):
         '''
@@ -148,7 +153,7 @@ class MyEmail:
         '''
         while True:
             try:
-                server = smtplib.SMTP_SSL("smtp.exmail.qq.com", port=465)
+                server = smtplib.SMTP_SSL(self.smtp, port=self.port)
                 server.login(self.user, self.passwd)
                 server.sendmail("<%s>" % self.user, self.to_list + self.cc_list, self.get_attach())
                 server.close()
@@ -199,8 +204,9 @@ class MyEmail:
 
 
 def main():
+
     wf_tq = tq()
-    wf_to_list = ['sgwf525@126.com']
+    wf_to_list = to_list
     rm = ReceiveMail('wangfan', wf_to_list, wf_tq)
     my = MyEmail('wangfan', wf_to_list, wf_tq)
 

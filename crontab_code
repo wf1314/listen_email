@@ -1,1 +1,2 @@
-*/1 * * * * sh /listen_email/run.sh
+# 周一到周五的9点45
+45 9 * * 1-5 sh /listen_email/run.sh
