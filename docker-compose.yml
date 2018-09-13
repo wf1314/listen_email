@@ -1,0 +1,11 @@
+version: '3.5'
+
+
+services:
+  mail:
+    container_name: mail
+    hostname: mail
+
+    image: mail:v1
+    cap_add:
+      - ALL
