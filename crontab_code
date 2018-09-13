@@ -1,1 +1,1 @@
-45 9 * * 1-5 sh ./run.sh
+*/1 * * * * sh /listen_email/run.sh

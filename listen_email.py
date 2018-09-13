@@ -23,8 +23,8 @@ import re
 
 to_list = ['sgwf525@126.com', '****']
 flag = True
-email_user = '****'
-email_pass = '****'
+email_user = 'wangfan@botpy.com'
+email_pass = 'QWERdfb123'
 
 class ReceiveMail(object):
 
