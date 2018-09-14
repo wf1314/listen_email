@@ -12,4 +12,6 @@
 
     执行make run启动脚本
 
+	执行make kill终止脚本
+
     注:先修改代码再进行make build

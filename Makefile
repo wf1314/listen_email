@@ -5,3 +5,6 @@ build:
 
 run:
 	docker-compose up -d
+
+kill:
+	ps -efww|grep -w 'tail -f /var/log/cron.log'|grep -v grep|cut -c 9-15|xargs kill -9
