@@ -159,7 +159,7 @@ class MyEmail:
                 server = smtplib.SMTP_SSL(self.smtp, port=self.port)
                 server.login(self.user, self.passwd)
                 server.sendmail("<%s>" % self.user, self.to_list + self.cc_list, self.get_attach())
-                server.close()
+                server.quit()
                 # print("The email to {} was sent successfully".format(self.name))
             except Exception as e:
                 # print("send email failed:%s"%e)
